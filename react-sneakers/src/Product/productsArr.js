@@ -1,7 +1,7 @@
-import img1 from  '../products-images/image 5-10.svg';
-import img2 from  '../products-images/image 5-11.svg';
-import img3 from  '../products-images/image 5-2.svg';
-import img4 from  '../products-images/image 5-3.svg';
+import img1 from  './products-images/image 5-10.svg';
+import img2 from  './products-images/image 5-11.svg';
+import img3 from  './products-images/image 5-2.svg';
+import img4 from  './products-images/image 5-3.svg';
 
 import plus from "./plus.svg";
 
