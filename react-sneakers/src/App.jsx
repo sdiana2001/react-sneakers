@@ -5,6 +5,52 @@ import {productsArr} from './../src/Product/productsArr';
 function App() {
   return (
    <div className="wrapper clear">
+    <div style={{display: 'none'}} className="overlay">
+    <div className="drawer">
+    <h2 className='mb-30' d-flex align-center justify-between >
+      Корзина <img src="/img/icons/remove__btn.svg" alt="Remove" />
+      </h2>
+    <div className="items">
+   {/* CARD 1 */}
+    <div className="cartItem d-flex align-center mb-20"> 
+    <img className='mr-20' width={70} src="/img/products-images/image 5-10.svg" alt="" />
+      <div className="mr-20">
+      <p className="mb-5">Мужские Кроссовки Nike Blazer Mid Suede</p>
+      <b>12 999 руб.</b>
+      </div>
+      <img className='removeBtn' src="/img/icons/remove__btn.svg" alt="" />
+      </div>
+ {/* CARD 2 */}
+      <div className="cartItem d-flex align-center mb-20"> 
+      <img className='mr-20' width={70} src="/img/products-images/image 5-10.svg" alt="" />
+      <div className="mr-20">
+      <p className="mb-5">Мужские Кроссовки Nike Blazer Mid Suede</p>
+      <b>12 999 руб.</b>
+      </div>
+      <img className='removeBtn' src="/img/icons/remove__btn.svg" alt="" />
+      </div>
+
+    </div>
+
+    <div className="cartTotalblock">
+      <ul>
+        <li>
+          <span>Итого: </span>
+          <div></div>
+          <b>21 498 руб.</b>
+        </li>
+        <li>
+          <span>Налог 5%: </span>
+          <div></div>
+          <b>1074 руб.</b>
+        </li>
+      </ul>
+      <button className='greenButton'>Оформить заказ <img src="/img/icons/arrow-btn.svg" alt="arrow" />
+      </button>
+      </div>
+      </div>
+      </div>
+
     <header className='d-flex justify-between align-center p-40'>
     <div className='d-flex align-center'>
       <img width={40} height={40} src="/img/icons/logo.svg" />
@@ -25,10 +71,18 @@ function App() {
     </ul>
     </header>
     <div className="content p-40">
-      <h1 className='mb-40'>Все кроссовки</h1>
+      <div className="d-flex justify-between align-center mb-40">
+      <h1>Все кроссовки</h1>
+      <div className="search-block">
+      <img src="/img/icons/search.svg" alt="search" />
+      <input placeholder='Поиск...' />
+      </div> 
+      </div>
+
+
       <div className="d-flex">
       {productsArr.map(item => (
-        <Product key={item.id} img={item.img} title={item.title} icon={item.icon} price={item.price} />
+        <Product key={item.id} img={item.img} title={item.title}  price={item.price} />
         ))}
 </div>
 {/* CARD */}
