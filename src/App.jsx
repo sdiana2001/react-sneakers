@@ -11,23 +11,22 @@ function App() {
   useEffect(() => {
     fetch('https://66a904f6e40d3aa6ff5a4dc3.mockapi.io/items')
       .then((response) => response.json())
-      .then((json) => {
-        setItems(json);
-      });
+      .then((json) => setItems(json));
   }, []);
 
-  const onAddToCart = (obj) => {
-    setCartItems((prev) => {
-      console.log(prev);
-      if (!Array.isArray(prev)) return [obj]; // Если prev не массив, инициализируем его как массив с obj
+  
 
-      const itemExists = prev.some((item) => item.id === obj.id);
-      if (!itemExists) {
-        return [...prev, obj];
-      }
-      return prev;
-    });
+  const onAddToCart = (obj) => {
+    // Проверяем, есть ли товар уже в корзине
+    const isItemInCart = cartItems.some(item => item.id === obj.id);
+
+    if (isItemInCart) {
+      setCartItems(prev => prev.filter(item => item.id !== obj.id));   // Если товар уже есть в корзине, удаляем его
+    } else {
+      setCartItems(prev => [...prev, obj]);  // Если товара нет в корзине, добавляем его
+    }
   };
+
 
   return (
     <div className="wrapper clear">
@@ -49,7 +48,7 @@ function App() {
               title={item.title}
               price={item.price}
               onFavorite={() => console.log('Нажали на сердце')}
-              onPlus={(obj) => onAddToCart(obj)}
+              onPlus={() => onAddToCart(item)} // Передаем весь объект товара
             />
           ))}
         </div>
