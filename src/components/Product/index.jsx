@@ -2,11 +2,12 @@ import { useState } from 'react';
 import ProductStyles from './Product.module.scss';
 
 function Product(props) {
-const {img, title, price, onFavorite} = props; // деструктуризация
+const {key, img, title, price, onFavorite, onPlus} = props; // деструктуризация
 const [isAdded, setIsAdded]= useState(false);
 const [isFavorite, setIsFavorite]= useState(false);
 
 const onClickPlus = ()=>{
+  onPlus({key, img, title, price}); 
   setIsAdded(!isAdded) //инвертируется переменная как при classList.toggle
 }
 
@@ -14,8 +15,9 @@ const onClickFavorite = ()=>{
   setIsFavorite(!isFavorite)
 }
 
+
     return (
-        <div className={ProductStyles.card}>
+        <div id={key} className={ProductStyles.card}>
           <div className={ProductStyles.favorite} onClick={onFavorite}>
           <img src={isFavorite ? "/img/icons/heart-Liked.svg" : "/img/icons/heart-Unliked.svg"} onClick={onClickFavorite}  alt="Unliked" />
           </div>
