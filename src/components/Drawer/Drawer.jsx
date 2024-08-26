@@ -19,8 +19,6 @@ function Drawer({onClose,  items = []}) {
       </div>
       <img className='removeBtn' src="/img/icons/remove__btn.svg" alt="" />
       </div>
-
-
       ))}
     </div>
 
