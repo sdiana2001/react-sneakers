@@ -7,6 +7,9 @@ function Drawer({onClose, onRemove,  items = []}) {
     <h2 className='mb-30' d-flex align-center justify-between >
       Корзина <img onClick={onClose} src="/img/icons/remove__btn.svg" alt="Remove" />
       </h2>
+      
+{/* условие для проверки пустой корзины */}
+      {items.length === 0 ?
 
       <div className="cartEmpty d-flex align-center justify-center flex-column flex">
       <img className="mb-20" width="120px" src="/img/icons/empty-cart.svg" alt="Empty" />
@@ -17,7 +20,7 @@ function Drawer({onClose, onRemove,  items = []}) {
         Вернуться назад
       </button>
     </div>
-
+:
     <div className="items">
       {items.map((obj) =>(
  // card
@@ -31,6 +34,7 @@ function Drawer({onClose, onRemove,  items = []}) {
       </div>
       ))}
       </div>
+      }
       <div className="cartTotalblock">
       <ul>
         <li>

@@ -56,7 +56,7 @@ function App() {
           <div className="search-block">
             <img src="/img/icons/search.svg" alt="search" />
             {searchValue && <img className='cu-p clear' onClick={()=> setsearchValue('')} src="/img/icons/remove__btn.svg" alt="Close" />}
-            <input onChange={onChangeSearchInput} value={searchValue} placeholder="Поиск..." />
+            <input onChange={onChangeSearchInput} value={searchValue} placeholder= "Поиск..." />
           </div>
         </div>
         <div className="d-flex flex-wrap">
